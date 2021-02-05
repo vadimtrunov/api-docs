@@ -23,9 +23,16 @@ For receiving responses from API calls please use http method __POST__
 ___
 ```json5
 {
-    "result": [],
-    "message": "ERROR MESSAGE",
-    "success": false
+    "code": 0,
+    "errors": {
+        "PARAM1": [
+            "MESSAGE"
+        ],
+        "PARAM2": [
+            "MESSAGE"
+        ]
+    },
+    "message": "MESSAGE"
 }
 ```
 ___
@@ -661,7 +668,7 @@ offset | Int | **No** | If you want the request to return entries starting from 
                 "id": 3711942768,                 // executed order ID
                 "clientOrderId": "order11-23-3",  // custom client order ID; "clientOrderId": "" - if not specified.
                 "makerFee": "0.001",              // maker fee ratio. If the number less than 0.0001 - its rounded to zero
-                "market": "BTC_USDT",             // mair
+                "market": "BTC_USDT",             // pair
                 "marketName": "BTC_USDT",         // market name
                 "price": "0",                     // executed order price, if executed order type is market it is equal to 0
                 "side": "sell",                   // executed order side
@@ -750,7 +757,7 @@ ___
 ```
 [POST] /api/v1/account/executed_history
 ```
-This endpoint retrieves orders history sorted by single market
+This endpoint retrieves deals history sorted by single market
 
 **Parameters:**
 
@@ -857,25 +864,23 @@ offset | Int | **No** | If you want the request to return entries starting from 
 ___
 
 
-### Query executed order history by single all markets
+### Query executed order history by all markets
 
 ```
 [POST] /api/v1/account/executed_history/all
 ```
-This endpoint retrieves orders history sorted by single market.
+This endpoint retrieves orders history sorted by all markets.
 
 **Parameters:**
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-market | String | **Yes** | Requested available market. Example: BTC_USDT
 limit | Int | **No** | LIMIT is a special clause used to limit records a particular query can return. Default: 50, Min: 1, Max: 100
 offset | Int | **No** | If you want the request to return entries starting from a particular line, you can use OFFSET clause to tell it where it should start. Default: 0, Min: 0, Max: 10000
 
 **Request BODY raw:**
 ```json5
 {
-    "market": "BTC_USDT",
     "offset": 0,
     "limit": 100,
     "request": "{{request}}",

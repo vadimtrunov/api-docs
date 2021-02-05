@@ -238,6 +238,8 @@ ___
 ```
 This endpoint retrieves a deposit address of the cryptocurrency.
 
+**Rate limit:** 5 requests per minute
+
 **Parameters:**
 
 Name | Type | Mandatory | Description
@@ -366,6 +368,8 @@ Available statuses:
     "message": "Validation failed"
 }
 ```
+
+
 
 </details>
 
@@ -729,7 +733,7 @@ Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 transactionMethod | Number | **Yes** | Method. Example: **1** if need to display deposits / **2** if need to display withdraws
 ticker | String | **No** | Currency's ticker. Example: BTC
-address | String | **No** | Can be used for filtering transactions by specific address.
+address | String | **No** | Can be used for filtering transactions by specific address or memo.
 uniqueId | String | **No** | Can be used for filtering transactions by specific unique id
 limit | Int | **Yes** | LIMIT is a special clause used to limit records a particular query can return. Default: 50, Min: 1, Max: 100
 offset | Int | **Yes** | If you want the request to return entries starting from a particular line, you can use OFFSET clause to tell it where it should start. Default: 0, Min: 0, Max: 10000
@@ -760,7 +764,7 @@ Response error codes:
 Deposit status codes:
 * `Pending` - 15
 * `Unconfirmed by user` - 5
-* `Canceled` - 9 an 4
+* `Canceled` - 9 and 4
 * `Successful` - 3 and 7
 
 Withdraw status codes:
