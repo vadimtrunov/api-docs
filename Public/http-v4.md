@@ -279,8 +279,8 @@ ___
       "fixed": null,
       "flex": null
     },
-    "is_depositable": true,
-    "is_withdrawal": true
+    "is_depositable": true,//true if currency can be deposit
+    "is_withdrawal": true //true if currency can be withdraw
   },
   "USD": {
     "ticker": "USD", // currency ticker
