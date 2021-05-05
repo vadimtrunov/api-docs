@@ -248,6 +248,8 @@ ticker | String | **Yes** | Currencies ticker. Example: UAH ⚠ Currencies ticke
 provider | String | **Yes** | Fiat currency provider. Example: VISAMASTER ⚠ Currency provider should be taken from https://whitebit.com/api/v4/public/assets response.
 amount | Numeric String | **Yes** | Deposit amount.
 uniqueId | String | **Yes** | Unique transaction identifier on client's side.
+successLink | String | **No** | Customer will be redirected to this URL by acquiring provider after success deposit. To activate this feature, please contact support
+failureLink | String | **No** | Customer will be redirected to this URL in case of fail or rejection on acquiring provider side. To activate this feature, please contact support
 
 **Request BODY raw:**
 ```json5
@@ -366,6 +368,35 @@ Available statuses:
         ]
     },
     "message": "Validation failed"
+}
+```
+
+```json5
+{
+    "code": 0,
+    "message": "Validation failed",
+    "errors": {
+        "successLink": [
+            "Your domain is incorrect. Please contact support for more details"
+        ],
+        "failureLink": [
+            "Your domain is incorrect. Please contact support for more details"
+        ]
+  }
+}
+```
+```json5
+{
+      "code": 0,
+      "message": "Validation failed",
+      "errors": {
+            "successLink": [
+                  "Uri domain must have only https scheme"
+            ],
+            "failureLink": [
+                  "Uri domain must have only https scheme"
+            ]
+      }
 }
 ```
 
