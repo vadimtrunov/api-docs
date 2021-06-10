@@ -434,8 +434,6 @@ Available statuses:
     }
 }
 ```
-
-
 </details>
 
 ___
