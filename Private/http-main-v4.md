@@ -420,6 +420,20 @@ Available statuses:
     }
 }
 ```
+```json5
+{
+    "code": 0,
+    "message": "Validation failed",
+    "errors": {
+        "successLink": [
+            "Your domain is incorrect. Please contact support for more details"
+        ],
+        "failureLink": [
+            "Your domain is incorrect. Please contact support for more details"
+        ]
+    }
+}
+```
 
 
 </details>
